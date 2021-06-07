@@ -8,6 +8,14 @@ The production of AutoRU’s newest car model, “MechaCar,” is suffering, and
 #### RESOURCES: 
 AutoRU has provided DYPCreators with data set from AutoRU’s new prototype MechCar and their manufacturing lot, which we will utilize In this MechaCar_Statistical_Analysis. In addition, this project will leverage the power of R & R Studio’s Built-in Functions & Libraries packages.
 
+## Project Deliverables 
+The  MechaCar_Statistical_Analysis consist of 4 deliverables as follows:
+
+- Deliverable 1: Linear Regression to Predict MPG
+- Deliverable 2: Summary Statistics on Suspension Coils
+- Deliverable 3: T-Test on Suspension Coils
+- Deliverable 4: Design a Study Comparing the MechaCar to the Competition
+
 ## Deliverable 1: Linear Regression to Predict MPG
 ### Linear Regression to Predict MPG
 The first dataset, MechaCar_mpg.csv, contains AutoUR mile per hour testing on 50 MechaCar prototypes. The AutopRU manufacturing team's test results consist of the following metric, which will serve as the variables(columns) in our analysis. : vehicle length, vehicle weight, spoiler angle, drivetrain, and ground clearance. Before analyzing the data, we first establish the following: 
@@ -124,9 +132,17 @@ H0: There is NO stastiscally difference
 #### HYPOTHESIS: 
 Ha: There IS a stastiscally difference 
 
+# Deliverable 4: Design a Study Comparing the MechaCar to the Competition
+## Study Design: MechaCar vs Competition.
+In the last deliverable we will design a statistical study that will compare MechaCar vehicles performance against vehicles performance from other manufacturers.
 
-
-                                     
+# MODULE INSTRUCTIONS: 
+Write a short description of a statistical study that can quantify how the MechaCar performs against the competition. In your study design, think critically about what metrics would be of interest to a consumer: for a few examples, cost, city or highway fuel efficiency, horse power, maintenance cost, or safety rating.
+In your description, address the following questions:
+What metric or metrics are you going to test?
+What is the null hypothesis or alternative hypothesis?
+What statistical test would you use to test the hypothesis? And why?
+What data is needed to run the statistical test?                                
 
 
                         
