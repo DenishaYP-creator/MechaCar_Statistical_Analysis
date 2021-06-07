@@ -9,6 +9,7 @@ The production of AutoRU’s newest car model, “MechaCar,” is suffering, and
 AutoRU has provided DYPCreators with data set from AutoRU’s new prototype MechCar, which we will utilize In this MechaCar_Statistical_Analysis. In addition, this project will leverage the power of R & R Studio’s Built-in Functions & Libraries packages.
 
 ## Deliverable 1: Linear Regression to Predict MPG
+### Linear Regression to Predict MPG
 The first dataset, MechaCar_mpg.csv, contains AutoUR mile per hour testing on 50 MechaCar prototypes. The AutopRU manufacturing team's test results consist of the following metric, which will serve as the variables(columns) in our analysis. : vehicle length, vehicle weight, spoiler angle, drivetrain, and ground clearance. Before analyzing the data, we first establish the following: 
 
 #### ALPHA VALUE: 
@@ -60,6 +61,7 @@ ground_clearance  | 3.546e+00   | 5.21e-08 ***
 
 ## Deliverable 1 Summary
 
+
 In the summary output of the mpg_data_table, each Pr(>|t|) value represents the probability that each coefficient contributes a random amount of variance to the linear model. 
 
 According to our results, vehicle_length and ground_clearance and the intercept significantly impact miles per gallon(mpg). Therefore we can conclude that they are statistically unlikely to provide random variances to our linear model. 
@@ -68,7 +70,22 @@ The R-square value from our linear model is 0.7149 or 72%
 The P-Value from our linear model is 5.35e+11 or 5.35 × 1011 or 535000000000.0
 
 # Deliverable 2: Summary Statistics on Suspension Coils
-The second dataset, MechaCar_mpg.csv, contains AutoUR mile per hour testing on 50 MechaCar prototypes. The AutopRU manufacturing team's test results consist of the following metric, which will serve as the variables(columns) in our analysis. : vehicle length, vehicle weight, spoiler angle, drivetrain, and ground clearance. Before analyzing the data, we first establish the following:
+### Summary Statistics on Suspension Coils
+The second dataset, 'Suspension_Coil.csv', contains AutoUR PSI for three manufacturing lots.The AutopRU manufacturing team's test results consist of the following metric, which will serve as the variables(columns) in our analysis. :VehicleID, Manufacturing_Lot, and PSI  . Before analyzing the data, we first establish the following:
+
+#### QUESTION:
+Is the manufacturing process consistent across production lots?
+
+#### NULL HYPNOSIS: 
+H0: Manufacturing is not consistent across production lots
+
+#### HYPOTHESIS: 
+Ha: Manufacturing is consistent across production lots
+
+
+
+
+
  MEAN  | MEDIAN | SD | VARIANCE
 ------------ | ------------- | -------------| -------------
 1498.78| 1500	 |  7.892627	| 	62.29356
@@ -83,7 +100,31 @@ Lot 2 | 1500.20 | 1500.0  | 2.7330181 | 7.4693878
 Lot 3 | 1496.14 | 1498.5| 13.0493725	 | 170.2861224
  
  
+## Deliverable 2 Summary: 
+The design specifications for the MechaCar suspension coils dictate that the variance of the suspension coils must not exceed 100 pounds per square inch. Does the current manufacturing data meet this design specification for all manufacturing lots in total and each lot individually? Why or why not?
  
+ 
+# Deliverable 3: T-Tests on Suspension Coils 
+
+#### QUESTION:
+Are all manufacturing lots statistically different from the population mean of 1,500 pounds per square inch? 
+
+#### NULL HYPNOSIS: 
+H0: There is NO stastiscally difference 
+
+#### HYPOTHESIS: 
+Ha: There IS a stastiscally difference 
+
+#### QUESTION:
+Is manufacturing each lot individuallystatistically different from the population mean of 1,500 pounds per square inch?
+
+#### NULL HYPNOSIS: 
+H0: There is NO stastiscally difference 
+
+#### HYPOTHESIS: 
+Ha: There IS a stastiscally difference 
+
+
 
                                      
 
