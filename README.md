@@ -6,7 +6,7 @@ AutosRU’s a vehicle manufacturing company, recently hired DYPCreator Data Anal
 The production of AutoRU’s newest car model, “MechaCar,” is suffering, and the Auto’sRU executive wants to understand the factors that are impacting production so that they can quickly fix the problem. 
 
 #### RESOURCES: 
-AutoRU has provided DYPCreators with data set from AutoRU’s new prototype MechCar, which we will utilize In this MechaCar_Statistical_Analysis. In addition, this project will leverage the power of R & R Studio’s Built-in Functions & Libraries packages.
+AutoRU has provided DYPCreators with data set from AutoRU’s new prototype MechCar and their manufacturing lot, which we will utilize In this MechaCar_Statistical_Analysis. In addition, this project will leverage the power of R & R Studio’s Built-in Functions & Libraries packages.
 
 ## Deliverable 1: Linear Regression to Predict MPG
 ### Linear Regression to Predict MPG
