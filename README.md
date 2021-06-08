@@ -40,18 +40,14 @@ H0: The slope of the linear model is zero, or m = 0) | Ha: The slope of the line
 
 # Logical Workflow 
 1.	We begin by loading our data and converting it into a data frame setting the data frame to the variable mpg_data_table. 
-2. We then leverage R’s lm() function to perform multiple linear regression calculations. The linear regression is used to calculate the slope and the coefficients. The lm () function takes several arguments; the two arguments we will use for this project are formula and data. lm(formula, data,) or m(y ~ x1 + x2 + x3 + x4 +x5, data=name_of_DF)
+2. We then leverage R’s lm() function to perform multiple linear regression calculations. The linear regression is used to calculate the slope and the coefficients. The **lm () function"" takes several arguments; the two arguments we will use for this project are formula and data. **lm(formula, data) The Data Argument is equal to the data table: mpg_data_table.
 
-#### Formula Argument:  
+Formula Argument | lm(formula, data) or lm(y ~ x1 + x2 + x3 + x4 + x5)
+------------ | -------------
+y value  | The y value is the Dependent Variable aka OutCome Variable (mpg) 
+x value  | The x values are the Five independent variables, aka Predictor Variable.
 
-The y value is the Dependent Variable aka OutCome Variable (mpg) 
-The X values are the Five independent variables, aka Predictor Variable. 
-
-#### Data Argument: 
-
-mpg_data_table.
-
-3. We use R’s summary() function to get our statistical metrics summary, including p-value and R-value for our multiple linear regression model. The R-value will help us in determining if the model adequately predicts our mpg variable.
+3. We use R’s **summary() function** to get our statistical metrics summary, including p-value and R-value for our multiple linear regression model. The R-value will help us in determining if the model adequately predicts our mpg variable.
 
 Variable | Coefficients:| Second Header
 ------------ | ------------- | -------------
@@ -84,6 +80,7 @@ As a result, we can state that there is sufficient evidence to reject our null h
 #### Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
 The R-square value from our linear model is 0.7149 or 72%, which means that roughly 72% of the variablilty of our  miles per gallon- mpg (dependent variable) is explained using this linear model.
 
+[![GC.png](https://i.postimg.cc/DZFCXTLN/GC.png)](https://postimg.cc/HJZ0qFS0) [![VC.png](https://i.postimg.cc/bNdmbLSq/VC.png)](https://postimg.cc/7f81r3NR)
 <hr> </hr> 
 
 
@@ -97,7 +94,7 @@ Is the manufacturing process consistent across production lots?
 
 NULL HYPNOSIS | HYPOTHESIS
 ------------ | -------------
-H0: Manufacturing is not consistent across production lots| Ha: Manufacturing is consistent across production lots
+H0: Manufacturing process **IS NOT** consistent across production lots| Ha: Manufacturing process **IS** consistent across production lots
 
 #### ALL PRODUCTION LOTS SUMMARY RESULTS:
 
@@ -131,18 +128,17 @@ Are all manufacturing lots statistically different from the population mean of 1
 
 NULL HYPNOSIS | HYPOTHESIS
 ------------ | -------------
-H0: We CANNOT predict the mpg based on the given variable | Ha: We CAN predict the mpg based on the given variable
 H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
 
 
 #### QUESTION:
-Is manufacturing each lot individuallystatistically different from the population mean of 1,500 pounds per square inch?
+Is the manufacturing of individual lots statistically different from the population mean of 1,500 pounds per square inch?
 
-#### NULL HYPNOSIS: 
-H0: There is NO stastiscally difference 
+NULL HYPNOSIS | HYPOTHESIS
+------------ | -------------
+H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
 
-#### HYPOTHESIS: 
-Ha: There IS a stastiscally difference 
+
 
 # Deliverable 4: Design a Study Comparing the MechaCar to the Competition
 ## Study Design: MechaCar vs Competition.
