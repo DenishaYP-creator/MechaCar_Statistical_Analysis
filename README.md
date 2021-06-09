@@ -80,7 +80,8 @@ As a result, we can state that there is sufficient evidence to reject our null h
 #### Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
 The R-square value from our linear model is 0.7149 or 72%, which means that roughly 72% of the variablilty of our  miles per gallon- mpg (dependent variable) is explained using this linear model.
 
-[![GC.png](https://i.postimg.cc/DZFCXTLN/GC.png)](https://postimg.cc/HJZ0qFS0) [![VC.png](https://i.postimg.cc/bNdmbLSq/VC.png)](https://postimg.cc/7f81r3NR)
+[![MPG-Plots.png](https://i.postimg.cc/FR7drPHB/MPG-Plots.png)](https://postimg.cc/JDC4K5JN)
+
 <hr> </hr> 
 
 
@@ -138,6 +139,8 @@ NULL HYPNOSIS | HYPOTHESIS
 ------------ | -------------
 H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
 
+#### RESULTS 
+[![T-Test-resutls.png](https://i.postimg.cc/2jhMcCzV/T-Test-resutls.png)](https://postimg.cc/yW6LW43H)
 
 
 # Deliverable 4: Design a Study Comparing the MechaCar to the Competition
