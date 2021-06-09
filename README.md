@@ -140,7 +140,7 @@ NULL HYPNOSIS | HYPOTHESIS
 H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
 
 #### RESULTS 
-[![T-Test-resutls.png](https://i.postimg.cc/2jhMcCzV/T-Test-resutls.png)](https://postimg.cc/yW6LW43H)
+[![Manufacturing-Lots-plots.png](https://i.postimg.cc/8CRtvHDz/Manufacturing-Lots-plots.png)](https://postimg.cc/4K36kpmD)
 
 
 # Deliverable 4: Design a Study Comparing the MechaCar to the Competition
