@@ -1,0 +1,290 @@
+> library(tidyverse)
+
+> mpg_data_table <- read.csv(file = 'MechaCar_mpg.csv', check.names=F,stringsAsFactors = T)
+> View(mpg_data_table)
+> dim(mpg_data_table) #Output:The total number of column & Row in the DataSet
+[1] 50  6
+> names(mpg_data_table)#Output:The names of the columns
+[1] "vehicle_length"   "vehicle_weight"   "spoiler_angle"    "ground_clearance" "AWD"              "mpg"             
+> head(mpg_data_table) #Output: The top 6 entry from the Data Set 
+> tail(mpg_data_table) #Output: The bottom 6 entry from the Data Set 
+> multi_line_reg <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
++      ground_clearance + AWD,  data = mpg_data_table) 
+> multi_line_reg 
+
+Call:
+lm(formula = mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
+    ground_clearance + AWD, data = mpg_data_table)
+
+Coefficients:
+     (Intercept)    vehicle_length    vehicle_weight     spoiler_angle  ground_clearance               AWD  
+      -1.040e+02         6.267e+00         1.245e-03         6.877e-02         3.546e+00        -3.411e+00  
+
+> mpg_summary <- summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
++      ground_clearance + AWD,  data = mpg_data_table)) 
+> mpg_summary
+
+Call:
+lm(formula = mpg ~ vehicle_length + vehicle_weight + spoiler_angle + 
+    ground_clearance + AWD, data = mpg_data_table)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.4701  -4.4994  -0.0692   5.4433  18.5849 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)      -1.040e+02  1.585e+01  -6.559 5.08e-08 ***
+vehicle_length    6.267e+00  6.553e-01   9.563 2.60e-12 ***
+vehicle_weight    1.245e-03  6.890e-04   1.807   0.0776 .  
+spoiler_angle     6.877e-02  6.653e-02   1.034   0.3069    
+ground_clearance  3.546e+00  5.412e-01   6.551 5.21e-08 ***
+AWD              -3.411e+00  2.535e+00  -1.346   0.1852    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 8.774 on 44 degrees of freedom
+Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825 
+F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
+
+> lm(mpg~vehicle_length,mpg_data_table) #create linear model
+
+Call:
+lm(formula = mpg ~ vehicle_length, data = mpg_data_table)
+
+Coefficients:
+   (Intercept)  vehicle_length  
+       -25.062           4.673  
+
+> summary(lm(mpg~vehicle_length,mpg_data_table)) #summarize linear model
+
+Call:
+lm(formula = mpg ~ vehicle_length, data = mpg_data_table)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-26.303  -7.160  -1.231   9.374  26.670 
+
+Coefficients:
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -25.0622    13.2960  -1.885   0.0655 .  
+vehicle_length   4.6733     0.8774   5.326 2.63e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 12.47 on 48 degrees of freedom
+Multiple R-squared:  0.3715,	Adjusted R-squared:  0.3584 
+F-statistic: 28.37 on 1 and 48 DF,  p-value: 2.632e-06
+
+> v_length_model <- lm(mpg~vehicle_length,mpg_data_table) #create linear model
+> v_length_model
+
+Call:
+lm(formula = mpg ~ vehicle_length, data = mpg_data_table)
+
+Coefficients:
+   (Intercept)  vehicle_length  
+       -25.062           4.673  
+
+> v_length_yvals <- v_length_model$coefficients['vehicle_length']*mpg_data_table$vehicle_length +
++   v_length_model$coefficients['(Intercept)'] #determine y-axis values from linear model
+> v_length_yvals 
+ [1] 43.62138 33.51360 68.40332 37.69282 47.13982 42.48332 40.85899 47.15849 42.81741 47.27356 43.95884 41.85839 43.55905 40.96428 61.81690 35.17424 45.56345 35.29848 36.96579 32.73731 59.37544 45.01550 33.74836 42.49014
+[25] 38.51692 51.65188 60.69871 48.91519 38.20126 33.17129 43.78710 54.23089 59.39765 34.50025 49.96907 31.01711 38.83198 36.78267 36.86110 53.62683 39.34478 56.84094 67.16165 52.32340 40.99761 48.04505 38.85108 64.54569
+[49] 41.92478 46.74610
+> plt <- ggplot(mpg_data_table,aes(x=vehicle_length,y=mpg)) #import dataset into ggplot2
+> plt + geom_point() + geom_line(aes(y=v_length_yvals), color = "blue") +labs(title = "MPG: Vehicle Length")#plot scatter and linear model
+> 
+> lm(mpg~ground_clearance,mpg_data_table) #create linear model
+
+Call:
+lm(formula = mpg ~ ground_clearance, data = mpg_data_table)
+
+Coefficients:
+     (Intercept)  ground_clearance  
+          19.418             2.022  
+
+> summary(lm(mpg~ground_clearance,mpg_data_table)) #summarize linear model
+
+Call:
+lm(formula = mpg ~ ground_clearance, data = mpg_data_table)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-28.788  -9.990  -1.615   7.332  35.803 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)  
+(Intercept)       19.4175    10.8662   1.787   0.0803 .
+ground_clearance   2.0222     0.8385   2.412   0.0198 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 14.86 on 48 degrees of freedom
+Multiple R-squared:  0.1081,	Adjusted R-squared:  0.08949 
+F-statistic: 5.816 on 1 and 48 DF,  p-value: 0.01975
+
+> g_clearance_model <- lm(mpg~ground_clearance,mpg_data_table)  #create linear model
+> g_clearance_model 
+
+Call:
+lm(formula = mpg ~ ground_clearance, data = mpg_data_table)
+
+Coefficients:
+     (Intercept)  ground_clearance  
+          19.418             2.022  
+
+> 
+> g_clearance_yvals <- g_clearance_model$coefficients['ground_clearance']*mpg_data_table$ground_clearance +
++   g_clearance_model$coefficients['(Intercept)'] #determine y-axis values from linear model
+> g_clearance_yvals
+ [1] 49.02511 48.47040 44.19747 45.68512 49.96136 45.92293 38.36962 52.15953 42.12911 41.50308 44.15340 45.65055 42.94947 45.96094 48.65847 49.89781 50.07226 42.95648 55.27400 48.34799 46.03170 37.21816 38.78814 39.08035
+[25] 41.75153 36.85055 39.24346 48.51007 49.37514 46.85616 43.90684 42.24310 42.85910 48.75480 37.82825 55.81785 44.95723 43.97569 39.18169 52.58945 46.84100 46.33481 40.36589 44.36833 49.23733 49.26193 47.79114 31.55095
+[49] 53.73801 39.77613
+> plt <- ggplot(mpg_data_table,aes(x=ground_clearance,y=mpg)) #import dataset into ggplot2
+> plt + geom_point() + geom_line(aes(y=g_clearance_yvals ), color = "orange") + labs(title = "MPG: Ground Clearance") #plot scatter and linear model
+> 
+> Suspension_Coil_Table <- read.csv(file = 'Suspension_Coil.csv', check.names=F,stringsAsFactors = F)
+> View(Suspension_Coil_Table)
+> dim(Suspension_Coil_Table) #Output:The total number of column & Row in the DataSet
+[1] 150   3
+> names(Suspension_Coil_Table) #Output:The total number of column & Row in the DataSet
+[1] "VehicleID"         "Manufacturing_Lot" "PSI"              
+> head(Suspension_Coil_Table) #Output: The top 6 entry from the Data Set 
+> #TOTAL SUMMARY
+> total_summary <- Suspension_Coil_Table %>% summarize(MEAN =mean(PSI), MEDIAN=median(PSI),SD=sd(PSI), VARIANCE=var(PSI))
+> total_summary
+> lot_summary <- Suspension_Coil_Table %>%  group_by(Manufacturing_Lot) %>% summarize(MEAN =mean(PSI), MEDIAN=median(PSI),SD=sd(PSI), VARIANCE=var(PSI))
+> lot_summary
+> dim(Suspension_Coil_Table) #Output:The total number of column & Row in the DataSet
+[1] 150   3
+> names(Suspension_Coil_Table) #Output:The total number of column & Row in the DataSet
+[1] "VehicleID"         "Manufacturing_Lot" "PSI"              
+> head(Suspension_Coil_Table) #Output: The top 6 entry from the Data Set 
+> results <- t.test(Suspension_Coil_Table$PSI, alternative = 'two.sided', mu=1500)
+> results 
+
+	One Sample t-test
+
+data:  Suspension_Coil_Table$PSI
+t = -1.8931, df = 149, p-value = 0.06028
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1497.507 1500.053
+sample estimates:
+mean of x 
+  1498.78 
+
+> 
+> summary(Suspension_Coil_Table$PSI)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   1452    1498    1500    1499    1501    1542 
+> var(Suspension_Coil_Table$PSI,na.rm = FALSE)
+[1] 62.29356
+> sd(Suspension_Coil_Table$PSI,na.rm = FALSE)
+[1] 7.892627
+> ggplot(Suspension_Coil_Table,aes(x=PSI)) + geom_bar(fill='blue') + labs(title = "All Manufacturing")
+> ggplot(Suspension_Coil_Table,aes(x=PSI)) + geom_density(fill='blue') + labs(title = "All Manufacturing", subtitle = "P-value = 0.06028") 
+> 
+> head(Suspension_Coil_Table)
+> names(Suspension_Coil_Table)
+[1] "VehicleID"         "Manufacturing_Lot" "PSI"              
+> lot1_set <- subset(Suspension_Coil_Table, Manufacturing_Lot == 'Lot1', select=Manufacturing_Lot:PSI)
+> head(lot1_set)
+> lot1_results <- t.test(lot1_set$PSI, alternative = 'two.sided', mu=1500)
+> lot1_results
+
+	One Sample t-test
+
+data:  lot1_set$PSI
+t = 0, df = 49, p-value = 1
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.719 1500.281
+sample estimates:
+mean of x 
+     1500 
+
+> ggplot(lot1_set,aes(x=PSI)) + geom_bar(fill='orange')+ labs(title = "Manufacturing Lot 1")
+> ggplot(lot1_set,aes(x=PSI)) + geom_density(fill='orange')+ labs(title = "Manufacturing Lot 1 ", subtitle = "P-value = 1")
+> lot2_set <- subset(Suspension_Coil_Table, Manufacturing_Lot == 'Lot2', select=Manufacturing_Lot:PSI)
+> head(lot2_set)
+> lot2_results <- t.test(lot2_set$PSI, alternative = 'two.sided', mu=1500)
+> lot2_results
+
+	One Sample t-test
+
+data:  lot2_set$PSI
+t = 0.51745, df = 49, p-value = 0.6072
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1499.423 1500.977
+sample estimates:
+mean of x 
+   1500.2 
+
+> ggplot(lot2_set,aes(x=PSI)) + geom_bar(fill='purple') + labs(title = "Manufacturing Lot 2")
+> ggplot(lot2_set,aes(x=PSI)) + geom_density(fill='purple') + labs(title = "Manufacturing Lot 2", subtitle = "P-value = 0.6072")
+> lot3_set <- subset(Suspension_Coil_Table, Manufacturing_Lot == 'Lot3', select=Manufacturing_Lot:PSI)
+> head(lot3_set)
+> lot3_results <- t.test(lot3_set$PSI, alternative = 'two.sided', mu=1500)
+> lot3_results
+
+	One Sample t-test
+
+data:  lot3_set$PSI
+t = -2.0916, df = 49, p-value = 0.04168
+alternative hypothesis: true mean is not equal to 1500
+95 percent confidence interval:
+ 1492.431 1499.849
+sample estimates:
+mean of x 
+  1496.14 
+
+> ggplot(lot2_set,aes(x=PSI)) + geom_bar(fill='green') + labs(title = "Manufacturing Lot 3")
+> ggplot(lot2_set,aes(x=PSI)) + geom_density(fill='green') + labs(title = "Manufacturing Lot 3", subtitle = "P-value = 0.04168")
+> mpg_data_table <- read.csv(file = 'MechaCar_mpg.csv', check.names=F,stringsAsFactors = T)
+> mecha_data <- mpg_data_table[c("mpg")]
+> head(mecha_data)
+> MtCars_data <- mtcars[c("mpg")]
+> head(MtCars_data)
+> mpg_sample <- mecha_data ['mpg'] %>% sample_n(25) #randomly sample 25 data points
+> summary(mpg_sample)
+      mpg       
+ Min.   :10.00  
+ 1st Qu.:29.98  
+ Median :42.42  
+ Mean   :44.62  
+ 3rd Qu.:55.94  
+ Max.   :74.71  
+> var(mecha_data $mpg,na.rm = FALSE)
+[1] 242.4932
+> sd(mecha_data $mpg,na.rm = FALSE)
+[1] 15.57219
+> 
+> mecha_sample<- MtCars_data['mpg'] %>% sample_n(25) #randomly sample 25 data points
+> summary(mecha_sample)
+      mpg       
+ Min.   :10.40  
+ 1st Qu.:16.40  
+ Median :19.70  
+ Mean   :20.71  
+ 3rd Qu.:22.80  
+ Max.   :33.90  
+> var(MtCars_data$mpg,na.rm = FALSE)
+[1] 36.3241
+> sd(MtCars_data$mpg,na.rm = FALSE)
+[1] 6.026948
+> sample_t_test <- t.test(mpg_sample$mpg,mecha_sample$mpg,paired = T) #compare the mean difference between two samples
+> sample_t_test 
+
+	Paired t-test
+
+data:  mpg_sample$mpg and mecha_sample$mpg
+t = 7.3012, df = 24, p-value = 1.53e-07
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 17.14999 30.66684
+sample estimates:
+mean of the differences 
+               23.90841 
