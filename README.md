@@ -66,18 +66,18 @@ ground_clearance  | 3.546e+00   | 5.21e-08 ***
 
 ## Deliverable 1 Summary
 
-#### Question 1: Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
+##### Question 1: Which variables/coefficients provided a non-random amount of variance to the mpg values in the dataset?
 
 In the summary output of the mpg_data_table, each Pr(>|t|) value represents the probability that each coefficient contributes a random amount of variance to the linear model. 
 
 According to our results, vehicle_length, ground_clearance and the intercept significantly impact miles per gallon(mpg). Therefore we can conclude that they are statistically unlikely to provide random variances to our linear model. 
 
-#### Question 2: Is the slope of the linear model considered to be zero? Why or why not?
+##### Question 2: Is the slope of the linear model considered to be zero? Why or why not?
 The P-Value from our linear model is 5.35e+11 or 5.35 × 1011 or 535000000000.0 is smaller than our alpha value of 0.05.
 As a result, we can state that there is sufficient evidence to reject our null hypothesis, which means that the slope of our linear model is not zero.
 
 
-#### Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
+##### Question 3: Does this linear model predict mpg of MechaCar prototypes effectively? Why or why not?
 The R-square value from our linear model is 0.7149 or 72%, which means that roughly 72% of the variablilty of our  miles per gallon- mpg (dependent variable) is explained using this linear model.
 
 [![MPG-Plots.png](https://i.postimg.cc/FR7drPHB/MPG-Plots.png)](https://postimg.cc/JDC4K5JN)
@@ -87,24 +87,24 @@ The R-square value from our linear model is 0.7149 or 72%, which means that roug
 
 
 # Deliverable 2: Summary Statistics on Suspension Coils
-### Summary Statistics on Suspension Coils
+##### Summary Statistics on Suspension Coils
 The second dataset, 'Suspension_Coil.csv', contains AutoUR PSI for three manufacturing lots.The AutopRU manufacturing team's test results consist of the following metric, which will serve as the variables(columns) in our analysis. :VehicleID, Manufacturing_Lot, and PSI  . Before analyzing the data, we first establish the following:
 
-#### QUESTION:
+##### QUESTION:
 Is the manufacturing process consistent across production lots?
 
 NULL HYPNOSIS | HYPOTHESIS
 ------------ | -------------
 H0: Manufacturing process **IS NOT** consistent across production lots| Ha: Manufacturing process **IS** consistent across production lots
 
-#### ALL PRODUCTION LOTS SUMMARY RESULTS:
+##### ALL PRODUCTION LOTS SUMMARY RESULTS:
 
  MEAN  | MEDIAN | SD | VARIANCE
 ------------ | ------------- | -------------| -------------
 1498.78| 1500	 |  7.892627	| 	62.29356
 
 
-#### INDIVDUAL LOTS PRODUCTION LOTS SUMMARY RESULTS:
+##### INDIVDUAL LOTS PRODUCTION LOTS SUMMARY RESULTS:
 
 Manufacturing_Lot | MEAN | MEDIAN  | SD | VARIANCE
 ------------ | ------------- | -------------| ------------- | -------------
@@ -118,41 +118,67 @@ The design specifications for the MechaCar suspension coils dictate that the var
 - The current manufacturing data confirms the variance of the suspension coil for all manufacturing lots in total is 62 pounds therefore it meets the design specification. 
 - The current manufacturing data confirms the variance of the suspension coil for manufacturing **lot 1** is ** 98 pounds**, **lot 2** is ** 7 pounds**, and **lot 3** is ** 170 pounds**,  therefore we can state that manufacturing lot & and 2 meet the design specification.
 
+
+
+
 <hr> </hr> 
- 
- 
  
 # Deliverable 3: T-Tests on Suspension Coils 
 
-#### QUESTION:
+##### ALPHA VALUE: 
+We will use the standard value of 0.05 or 50%
+
+#####  TEST TYPES: T-Test 
+T-test are use to compare two data set from another. 
+
+#### QUESTION1:
 Are all manufacturing lots statistically different from the population mean of 1,500 pounds per square inch? 
-
-NULL HYPNOSIS | HYPOTHESIS
------------- | -------------
-H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
-
-
-#### QUESTION:
+#### QUESTION2:
 Is the manufacturing of individual lots statistically different from the population mean of 1,500 pounds per square inch?
 
 NULL HYPNOSIS | HYPOTHESIS
 ------------ | -------------
 H0: There is NO stastiscally difference | Ha: There IS a stastiscally difference
 
+#### Answer 1: 
+The P-values of of the All manufacturing lots data set is 0.06028 or 6% which is above our Alpha value of  0.05 or 5%, as a reult, we can conclude that we have sufficient evidence to reject the null hypothesis. Furthermore, we would state that a statistical difference exists between the between population mean of 1500 pounds per square inch and the mean of all manufacturing data.
+
+#### Answer 2: 
+Our Alpha Value| 0.05 or 5%
+
+Lot | P-Value | Results 
+------------ | -------------| -------------
+Lot 1 | 0.06072 or 6% | There IS A stastiscally difference 
+Lot 2 | 1.00 |  There is NO stastiscally difference 
+Lot 3 | 0.04168 |  There is NO stastiscally difference 
+
+
 #### RESULTS 
-[![Manufacturing-Lots-plots.png](https://i.postimg.cc/8CRtvHDz/Manufacturing-Lots-plots.png)](https://postimg.cc/4K36kpmD)
+[![Lots-Data-Plots.png](https://i.postimg.cc/wMw7vgMK/Lots-Data-Plots.png)](https://postimg.cc/rRt8Z65g)
 
 
 # Deliverable 4: Design a Study Comparing the MechaCar to the Competition
-## Study Design: MechaCar vs Competition.
-In the last deliverable we will design a statistical study that will compare MechaCar vehicles performance against vehicles performance from other manufacturers.
+#####  Study Design: MechaCar vs Competition.
+In the last deliverable we will conduct a statistical study comparing MechaCar vehicles performance (mpg) against vehicles performance (mpg) from other manufacturers. We will use the MechaCar dataset and the R mtcars data set.
 
-# MODULE INSTRUCTIONS: 
-Write a short description of a statistical study that can quantify how the MechaCar performs against the competition. In your study design, think critically about what metrics would be of interest to a consumer: for a few examples, cost, city or highway fuel efficiency, horse power, maintenance cost, or safety rating.
-In your description, address the following questions:
-What metric or metrics are you going to test?
-What is the null hypothesis or alternative hypothesis?
-What statistical test would you use to test the hypothesis? And why?
-What data is needed to run the statistical test?                                
+##### The metric we will measure is MPG or Mile per Gallon
+
+##### Question:
+Is there a statically difference between the mpg performance of Mecha Car vehicles & the mpg performance of other vehicles 
+
+#####  TEST TYPES: Two Paired T-Test 
+T-test are use to compare two sample from two different populuations.
+
+##### ALPHA VALUE: 
+We will use the standard value of 0.05 or 50%
+
+NULL HYPNOSIS | HYPOTHESIS
+------------ | -------------
+H0 : The difference between our paired observations (the true mean difference, or "μd") is equal to zero. |Ha : The difference between our paired observations (the true mean difference, or "μd") is not equal to zero.
+
+                               
+[![Stat-Test.png](https://i.postimg.cc/52ZZ1sYm/Stat-Test.png)](https://postimg.cc/nXGdGY1s)
+
+
 
 
